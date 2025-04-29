@@ -1,18 +1,18 @@
 # Scalable Canvas
 
-The JavaScript module `canvas.mjs` arranges to redraw a canvas at maximum
-resolution whenever necessary, to make sure the image remains pin-sharp. The
-module exports functions `manageCanvas` and `releaseCanvas`. The `manageCanvas`
-function is called with a canvas element and a function `draw` which draws or
-redraws the current state of the canvas whenever it is called. The app should
-apply only relative coordinate transformations, and should use
+The JavaScript module `canvas.mjs` arranges to redraw an HTML5 canvas element at
+maximum resolution whenever necessary, to make sure the image remains pin-sharp.
+The module exports functions `manageCanvas` and `releaseCanvas`. The
+`manageCanvas` function is called with a canvas element and a function `draw`
+which draws or redraws the current state of the canvas whenever it is called.
+The app should apply only relative coordinate transformations, and should use
 `canvas.originalWidth` and `canvas.originalHeight` instead of `canvas.width` and
 `canvas.height` to find the coordinate range.
 
 If, for example, an app uses an `app` object which has a `draw` method which is
 passed a canvas element to redraw its content, then the `manageCanvas` call
 could be:
-```
+```js
 manageCanvas(canvas, ()=>app.draw(canvas));
 ```
 
